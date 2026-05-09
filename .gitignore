@@ -1,0 +1,4 @@
+qemu-5.2.0/
+target/
+*.bin
+qemu-5.2.0.tar.xz
