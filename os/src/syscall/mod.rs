@@ -9,7 +9,9 @@ use process::*;
 
 
 const SYSCALL_YIELD: usize = 124;
+const SYSCALL_GET_TIME: usize = 169;
 
+SYSCALL_GET_TIME => sys_get_time(),
 SYSCALL_YIELD => sys_yield(),
 
 pub fn syscall(syscall_id: usize, args: [usize; 3]) -> isize {

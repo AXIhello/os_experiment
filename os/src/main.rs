@@ -12,9 +12,14 @@ mod trap;
 mod loader;
 mod config;
 mod task;
+mod timer;
 
 global_asm!(include_str!("entry.asm"));
 global_asm!(include_str!("link_app.S"));
+
+
+trap::enable_timer_interrupt();
+timer::set_next_trigger();
 
 fn clear_bss() {
     extern "C" {
