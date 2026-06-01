@@ -23,7 +23,7 @@ use riscv::register::{
 };
 
 use crate::syscall::syscall;
-use crate::batch::run_next_app;
+//use crate::batch::run_next_app;
 
 #[no_mangle]
 pub fn trap_handler(cx: &mut TrapContext) -> &mut TrapContext {

@@ -7,6 +7,11 @@ mod process;
 use fs::*;
 use process::*;
 
+
+const SYSCALL_YIELD: usize = 124;
+
+SYSCALL_YIELD => sys_yield(),
+
 pub fn syscall(syscall_id: usize, args: [usize; 3]) -> isize {
     match syscall_id {
         SYSCALL_WRITE => sys_write(args[0], args[1] as *const u8, args[2]),
