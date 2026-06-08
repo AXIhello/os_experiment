@@ -1,3 +1,4 @@
+#![feature(panic_info_message)]
 #![no_std]
 #![no_main]
 
@@ -18,9 +19,6 @@ global_asm!(include_str!("entry.asm"));
 global_asm!(include_str!("link_app.S"));
 
 
-trap::enable_timer_interrupt();
-timer::set_next_trigger();
-
 fn clear_bss() {
     extern "C" {
         fn sbss();
@@ -37,6 +35,10 @@ pub fn rust_main() -> ! {
     println!("[kernel] Hello, world!");
     trap::init();
     loader::load_apps();
+
+    trap::enable_timer_interrupt();
+    timer::set_next_trigger();      
+
     task::run_first_task();
     panic!("Unreachable in rust_main!");
 }
