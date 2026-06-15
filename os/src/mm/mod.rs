@@ -7,7 +7,9 @@ mod memory_set;
 use address::{VPNRange, StepByOne};
 pub use address::{PhysAddr, VirtAddr, PhysPageNum, VirtPageNum};
 pub use frame_allocator::{FrameTracker, frame_alloc};
-pub use page_table::{PageTable, PageTableEntry, PTEFlags, translated_byte_buffer};
+pub use page_table::{
+    PageTable, PageTableEntry, PTEFlags, translated_byte_buffer, translated_str, translated_refmut,
+};
 pub use memory_set::{MemorySet, KERNEL_SPACE, MapPermission};
 pub use memory_set::remap_test;
 
